@@ -1,7 +1,10 @@
 import { fail } from '@sveltejs/kit';
 import { Game } from './game';
 import type { PageServerLoad, Actions } from './$types';
-import { A } from '$env/static/private';
+import { env } from '$env/dynamic/private';
+const { A } = env;
+
+export const prerender = false;
 
 export const load = (({ cookies }) => {
 	const game = new Game(cookies.get('sverdle'));

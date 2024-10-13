@@ -28,6 +28,7 @@ RUN npm ci --include=dev
 COPY . .
 
 # Build application
+RUN npm run sync
 RUN npm run build
 
 # Remove development dependencies
